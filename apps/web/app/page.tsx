@@ -1,5 +1,9 @@
+import CreateToDo from "../components/CreateToDO";
+
 export default function Home() {
   return (
-    <div>First Turbo</div>
+    <div>
+      <CreateToDo />
+    </div>
   );
 }
