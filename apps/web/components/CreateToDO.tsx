@@ -2,7 +2,11 @@
 
 import { useState } from "react";
 
-function CreateToDo() {
+interface CreateToDoProps {
+  onTodoAdded?: () => void;
+}
+
+function CreateToDo({ onTodoAdded }: CreateToDoProps) {
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -27,6 +31,7 @@ function CreateToDo() {
         alert("Task created successfully!");
         setDescription("");
         setDate("");
+        if (onTodoAdded) onTodoAdded();
       } else {
         console.error("Failed to create task");
         alert("Failed to create task");
