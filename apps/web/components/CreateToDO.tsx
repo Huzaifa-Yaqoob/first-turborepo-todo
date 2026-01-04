@@ -12,15 +12,12 @@ function CreateToDo() {
     setIsLoading(true);
 
     try {
-      const response = await fetch("https://dummyjson.com/todos/add", {
+      const response = await fetch("http://localhost:3001/todos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          todo: description,
-          completed: false,
-          userId: 5,
-          // Sending date as requested, though dummyjson may not echo it back in the standard response
-          dueDate: date,
+          description,
+          date,
         }),
       });
 
@@ -90,7 +87,7 @@ function CreateToDo() {
           <button
             type="submit"
             disabled={isLoading}
-            className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-70"
+            className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-70"
           >
             {isLoading ? "Creating..." : "Create Task"}
           </button>
