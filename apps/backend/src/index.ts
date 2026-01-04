@@ -1,10 +1,11 @@
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { dbConnect } from "./lib/dbConnect";
 import { Todo } from "./lib/schema/todo.schema";
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3003;
 
 // Connect to Database
 dbConnect();
